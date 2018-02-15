@@ -15,4 +15,17 @@ I'm working slowly at this project, so here comes a little big TODO list:
 + Add scoreboard functionality
   + Local Scoreboard with localStorage
   + Global Scoreboard with Firebase
-
+  + Add scoreboard button
++ Recompile Android App
++ Create Electron Desktop Application
++ Create Versus Mode
+  + Comunicate between players
+  + Show their progress
+  + Show two screens side to side
++ Get better styling on toasts
++ Give player chance to choose game mode
+  + Arcade mode
+  + Infinite mode
++ Increase dificulty based on score
++ Block attempts with chrome console open
++ Configuration screen to set miner
