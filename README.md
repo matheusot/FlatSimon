@@ -8,7 +8,7 @@ I'm working slowly at this project, so here comes a little big TODO list:
 
 ## TODO:
 + Refactor and review code :heavy_check_mark:
-+ Remove sound bugs
++ Remove sound bugs :heavy_check_mark:
 + Finish and improve translation (maybe add some translation api)
 + Fix share button on desktop
 + Fix info button
