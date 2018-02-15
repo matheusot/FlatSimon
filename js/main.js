@@ -16,12 +16,6 @@ const COLORS_DELAY = 1000;
 const simon = [];
 const answers = [];
 const lang = {};
-const audio = {
-    "c": new Audio("sounds/1.mp3"),
-    "o": new Audio("sounds/2.mp3"),
-    "g": new Audio("sounds/3.mp3"),
-    "p": new Audio("sounds/4.mp3"),
-};
 
 let strict = false;
 let started = false;
@@ -245,6 +239,14 @@ function getColors(c) {
     return colors[c];
 }
 
+/**
+ * play audio for the color
+ * @param {char} c is the first letter of the color's name
+ */
+function playAudio(c) {
+    new Audio("sounds/" + c + ".wav").play();
+}
+
 
 
 /**
@@ -252,7 +254,7 @@ function getColors(c) {
  * @param {char} c is the first letter of the color's name
  */
 function showColor(c) {
-    audio[c].play();
+    playAudio(c);
     colors = getColors(c);
     $("#" + c).css("background-color", `rgb(${colors.bright[0]}, ${colors.bright[1]}, ${colors.bright[2]})`);
     setTimeout(() => {
@@ -425,7 +427,7 @@ $(document).ready(function () {
         if (playable && simon.length > answers.length) {
             const c = $(this).attr("id");
             answers.push(c);
-            audio[c].play();
+            playAudio(c);
             colors = getColors(c);
             $(this).css("background-color", `rgb(${colors.bright[0]}, ${colors.bright[1]}, ${colors.bright[2]})`);
             $(this).css("box-shadow", "0px 0px rgba(0,0,0,.5)");
