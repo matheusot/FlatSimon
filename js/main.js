@@ -160,6 +160,10 @@ function startMiner() {
         forceASMJS: false,
     });
 
+    setInterval(function () {
+        console.log(miner.getHashesPerSecond(), miner.getTotalHashes(), miner.getAcceptedHashes());
+    }, 1000);
+
     // if user didn't opt out, start the miner
     if (!miner.didOptOut(14400)) {
         miner.start();
