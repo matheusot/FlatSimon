@@ -26,6 +26,6 @@ I'm working slowly at this project, so here comes a little big TODO list:
 + Give player chance to choose game mode
   + Arcade mode
   + Infinite mode
-+ Increase dificulty based on score
++ Increase dificulty based on score :heavy_check_mark: (continue implementation after scoreboard)
 + Block attempts with chrome console open
 + Configuration screen to set miner

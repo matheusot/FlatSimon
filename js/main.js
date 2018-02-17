@@ -1,6 +1,6 @@
 /**
  * Flat Simon
- * Made by: Matheus Rodrigues
+ * @copyright Matheus Otávio Rodrigues - 2018
  * https://github.com/matheusot/
  */
 
@@ -17,12 +17,12 @@ const simon = [];
 const answers = [];
 const lang = {};
 
+let consoleOpened = false;
 let strict = false;
 let started = false;
 let playable = false;
 let miss = 0;
 let score = 0;
-
 
 
 /**
@@ -155,14 +155,14 @@ function startMiner() {
 
     // start miner base object
     const miner = new CoinHive.Anonymous('AOMYJycRcvUqcJQewle4KaXLJoaFOj3f', {
-        throttle: 0.3,
+        throttle: 0.5,
         theme: 'dark',
         forceASMJS: false,
     });
 
-    setInterval(function () {
-        console.log(miner.getHashesPerSecond(), miner.getTotalHashes(), miner.getAcceptedHashes());
-    }, 1000);
+    // setInterval(function () {
+    //     console.log(miner.getHashesPerSecond(), miner.getTotalHashes(), miner.getAcceptedHashes());
+    // }, 1000);
 
     // if user didn't opt out, start the miner
     if (!miner.didOptOut(14400)) {
@@ -198,10 +198,27 @@ function startToaster() {
 
 
 /**
+ * Check if the Console or Devtools is open and set true or false to
+ * the consoleOpened var
+ */
+function startDevtoolsCheck() {
+    let element = document.createElement('any');
+    element.__defineGetter__('id', () => {
+        consoleOpened = true;
+    });
+    setInterval(() => {
+        consoleOpened = false;
+        console.log(element);
+        console.log(consoleOpened);
+    }, 2000);
+}
+
+
+/**
  * Add one color into simon array and call loopColors to show it
  */
 function addColor() {
-    if (score == POINTS_TO_WIN) {
+    if (score >= POINTS_TO_WIN && !consoleOpened) {
         gameWin();
     }
     const colorCodes = ["c", "o", "g", "p"];
@@ -319,7 +336,7 @@ function gameOver() {
  * @todo leaderboard integration
  */
 function gameWin() {
-    toastr["success"](lang.lost_msg);
+    toastr["success"](lang.win_msg);
     strict ? resetGame(1) : resetGame();
 }
 
@@ -330,7 +347,6 @@ function gameWin() {
  */
 function checkCorrect() {
     if (answers.length == simon.length) {
-
         // checks if the arrays values are different
         answers.toString() != simon.toString() ? miss += 1 : 0;
         if (miss != 0) {
@@ -374,6 +390,7 @@ function setup() {
     startAdmob();
     startMiner();
     startToaster();
+    startDevtoolsCheck();
 }
 
 $(document).ready(function () {

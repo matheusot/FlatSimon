@@ -1,11 +1,30 @@
+/**
+ * Flat Simon
+ * @copyright Matheus Otávio Rodrigues - 2018
+ * https://github.com/matheusot/
+ */
+
 @font-face {
     font-family: 'Dosis';
     src: url('Dosis-Regular.ttf');
 }
 
+
+/*
+  Body and 'global' styles and variables
+*/
+:root {
+    --body-bg-color: #efefef;
+    --btn-small-bg-color: #222;
+    --btn-small-text-color: #fff;
+    --menu-text-color: #000;
+}
+*:focus {
+    outline: none !important
+}
 body {
     font-family: 'Dosis';
-    background: #efefef;
+    background: var(--body-bg-color);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -14,82 +33,15 @@ body {
     user-select: none;
 }
 
-*:focus {
-    outline: none !important
-}
-
 .row {
     text-align: center;
 }
 
-.btn {
-    transition: all .1s;
-}
 
-.btn.colors {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    margin: 0px;
-    margin-top: -10px;
-}
 
-.btn.small {
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
-    margin-top: 70px;
-    text-transform: uppercase;
-    background-color: #222;
-    color: white;
-}
-
-.btn {
-    box-shadow: 5px 5px rgba(0, 0, 0, .5);
-}
-
-#strict {
-    margin-left: 10px;
-}
-
-#score {
-    margin-top: 20px;
-    background-color: #222;
-    color: white;
-    font-size: 51px;
-}
-
-#c {
-    background-color: rgb(40, 190, 180);
-}
-
-#o {
-    background-color: rgb(235, 110, 20);
-}
-
-#g {
-    margin-left: 60px;
-    background-color: rgb(45, 220, 35);
-}
-
-#p {
-    background-color: rgb(225, 10, 195);
-}
-
-#msg {
-    position: fixed;
-    background-color: rgba(0, 0, 0, .8);
-    color: white;
-    width: 100%;
-    left: 0px;
-    margin-top: 80px;
-    padding: 5px;
-    font-size: 60px;
-    text-align: center;
-    z-index: 9;
-    text-transform: uppercase;
-}
-
+/*
+  Menu styles
+*/
 .menu {
     height: 100px;
     width: 25px;
@@ -99,30 +51,78 @@ body {
     top: 0;
     right: 0;
 }
-
 .menu li {
     list-style: none;
     font-size: 25px;
-    color: #000;
+    color: var(--menu-text-color);
     opacity: .3;
 }
 
-a {
-    text-decoration: none;
-    color: aqua;
+
+
+/*
+  Buttons styles
+*/
+
+.btn {
+    transition: all .1s;
+}
+.btn.ball {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0px;
+    margin-top: -10px;
+}
+.btn.small {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 70px;
+    text-transform: uppercase;
+    background-color: var(--btn-small-bg-color);
+    color: var(--btn-small-text-color);
+}
+.btn {
+    box-shadow: 5px 5px rgba(0, 0, 0, .5);
+}
+#strict {
+    margin-left: 10px;
+}
+#score {
+    margin-top: 20px;
+    background-color: var(--btn-small-bg-color);
+    color: var(--btn-small-text-color);
+    font-size: 51px;
+}
+#c {
+    background-color: rgb(40, 190, 180);
+}
+#o {
+    background-color: rgb(235, 110, 20);
+}
+#g {
+    margin-left: 60px;
+    background-color: rgb(45, 220, 35);
+}
+#p {
+    background-color: rgb(225, 10, 195);
 }
 
+
+
+/*
+  Toast styling
+*/
 .toast {
-    background: #222;
+    background: var(--btn-small-bg-color);
     font-size: 20px;
     text-align: center;
     background-image: none;
 }
-
-#toast-container>.toast-success {
-    background-image: none;
-}
-
 .toast-container {
     border-radius: 100%;
+}
+#toast-container>.toast-success {
+    background-image: none;
 }
